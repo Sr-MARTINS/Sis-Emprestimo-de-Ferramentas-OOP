@@ -36,4 +36,14 @@ class Database
 
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
+
+    public function delete($id)
+    {
+        $sql = " DELETE FROM ferramenta WHERE id_ferramenta = ? ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+        
+        $stmt->execute();
+    }   
 }

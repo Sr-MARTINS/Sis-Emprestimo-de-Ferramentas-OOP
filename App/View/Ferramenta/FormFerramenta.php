@@ -9,7 +9,7 @@
 
     <h1>Cadastro</h1>
 
-    <form method="POST" action="/home/Cadastro/formFerramenta/save">
+    <form method="POST" action="/home/cadastro/save">
         <label for="ferramenta">Ferramenta</label>
         <input type="text" name="ferramenta" id="nome">
 

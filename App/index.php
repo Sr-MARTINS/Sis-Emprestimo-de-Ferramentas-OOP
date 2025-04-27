@@ -8,20 +8,24 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 switch ($url) 
 {
-    case '/':
-        HomeController::index();
+    case ('/'):
+        echo 'Login';
         break;
-    
+
     case '/home':
         HomeController::index();
         break;
-
-    case '/home/Cadastro/formFerramenta/save';
+    
+    case '/home/cadastro':
         HomeController::form();
         break;
 
-    case '/home/Cadastro/delete':
-        echo 'delete';
+    case '/home/cadastro/save';
+        HomeController::save();
+        break;
+
+    case '/home/cadastro/delete':
+        HomeController::delete();
         break;
 
     default :
