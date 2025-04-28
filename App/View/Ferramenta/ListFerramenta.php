@@ -27,7 +27,7 @@
             <td><?= $itens->status        ?></td>
 
             <td>
-                <a href="">Editar</a> /
+                <a href="/home/cadastro?id=<?= $itens->id_ferramenta ?>">Editar</a> /
                 <a href="/home/cadastro/delete?id=<?= $itens->id_ferramenta ?>">Deletar</a>
             </td>
         </tr>

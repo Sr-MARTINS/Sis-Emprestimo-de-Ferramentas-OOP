@@ -12,6 +12,7 @@ class Database
 
     }
 
+
     public function insert(HomeController $materias)
     {
         // var_dump($materias);
@@ -37,13 +38,45 @@ class Database
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    public function selectById($id)
+    {
+        include_once 'Controller/HomeController.php';
+
+        $sql = " SELECT * FROM ferramenta WHERE id_ferramenta = ? ";
+
+        $stmt = $this->conexao->prepare($sql);
+        $stmt->bindValue(1, $id);
+     
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        // var_dump($stmt);
+    }
+
+    public function update(HomeController $materias)
+    {
+        $sql = " UPDATE ferramenta SET  ferramenta = ? , descricao = ? , status = ?  WHERE id_ferramenta = ? ";
+    
+        $stmt = $this->conexao->prepare($sql);
+
+        $stmt->bindValue(1, $materias->ferramenta);
+        $stmt->bindValue(2, $materias->descricao);
+        $stmt->bindValue(3, $materias->status);
+        $stmt->bindValue(4, $materias->id_ferramenta);
+
+        $stmt->execute();
+        // return $stmt->execute();
+        // return  $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+
+
     public function delete($id)
     {
         $sql = " DELETE FROM ferramenta WHERE id_ferramenta = ? ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
-        
+
         $stmt->execute();
     }   
 }
