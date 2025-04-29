@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Lista</h1>
+    <h1>Lista Usuario</h1>
 
-    <a href="/home/cadastro_ferramente">Cadastrar Ferramenta</a> //  //   //
+    <!-- <a href="/home/cadastro_ferramente">Cadastrar Ferramenta</a> //  //   // -->
 
     <a href="/home/cadastro_usuario">Cadastro Usuarios</a>
 
@@ -23,14 +23,16 @@
 
         <?php foreach($rows as $itens) : ?>
         <tr>
-            <td><?= $itens->id_ferramenta ?></td>
-            <td><?= $itens->ferramenta    ?></td>
-            <td><?= $itens->descricao     ?></td>
-            <td><?= $itens->status        ?></td>
+                <th>ID</th>
+                <th>Ferramenta</th>
+                <th>Descrição </th>
+                <th>Status    </th>
+                <th>Opsções   </th>
+           
 
             <td>
-                <a href="/home/cadastro?id=<?= $itens->id_ferramenta ?>">Editar</a> /
-                <a href="/home/cadastro/delete?id=<?= $itens->id_ferramenta ?>">Deletar</a>
+                <a href="">Editar</a> /
+                <a href="">Deletar</a>
             </td>
         </tr>
         <?php endforeach ?>

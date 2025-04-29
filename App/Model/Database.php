@@ -2,6 +2,9 @@
 
 class Database
 {
+    static public $tabela;
+    static public $colunas;
+    
     private $conexao;
 
     public function __construct()
@@ -13,17 +16,30 @@ class Database
     }
 
 
-    public function insert(HomeController $materias)
+    public function insert($dados)
     {
-        // var_dump($materias);
-        // exit;
-        $sql = " INSERT INTO ferramenta ( ferramenta, descricao, status ) VALUES (?, ?, ?) ";
+        $campos = [];    
+        foreach(static::$colunas as $campo){
+            $campos[$campo] = $dados->$campo;
+        } 
+
+        $colunas = implode(', ', array_keys($campos));
+        
+        $placeholders = rtrim(str_repeat('?, ', count($campos)), ', ');
+        
+        // Monta o SQL dinamicamente
+        $sql = "INSERT INTO " .static::$tabela ." ({$colunas}) VALUES ({$placeholders})";
 
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->bindValue(1, $materias->ferramenta);
-        $stmt->bindValue(2, $materias->descricao);
-        $stmt->bindValue(3, $materias->status);
+        // Faz o bind dos valores dinamicamente
+        $i = 1;
+        // var_dump($campos);
+        // exit;
+        foreach ($campos as $campo ) {
+            $stmt->bindValue($i, $campo);
+            $i++;
+        }
 
         $stmt->execute();
     }
@@ -42,17 +58,17 @@ class Database
     {
         include_once 'Controller/HomeController.php';
 
-        $sql = " SELECT * FROM ferramenta WHERE id_ferramenta = ? ";
+        $sql = " SELECT * FROM " .static::$tabela ." WHERE " .static::$colunas = "$id ";
 
         $stmt = $this->conexao->prepare($sql);
         $stmt->bindValue(1, $id);
      
         $stmt->execute();
+        
         return $stmt->fetchAll(PDO::FETCH_OBJ);
-        // var_dump($stmt);
     }
 
-    public function update(HomeController $materias)
+    public function update($materias)
     {
         $sql = " UPDATE ferramenta SET  ferramenta = ? , descricao = ? , status = ?  WHERE id_ferramenta = ? ";
     
@@ -63,9 +79,7 @@ class Database
         $stmt->bindValue(3, $materias->status);
         $stmt->bindValue(4, $materias->id_ferramenta);
 
-        $stmt->execute();
-        // return $stmt->execute();
-        // return  $stmt->fetchAll(PDO::FETCH_OBJ);
+       return  $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
 

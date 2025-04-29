@@ -10,7 +10,7 @@
     <h1>Cadastro</h1>
 
 
-    <form method="POST" action="/home/cadastro/save">
+    <form method="POST" action="/home/cadastro/save_ferramenta">
 
         <input type="hidden" name="id_ferramenta" name="id_ferramenta" value="<?php echo isset($_GET['id']) ? $dadosLinha->id_ferramenta : ''; ?>">        
 
