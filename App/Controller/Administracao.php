@@ -1,6 +1,6 @@
 <?php
 
-class Admistracao
+class Administracao
 {
     public static function index()
     {

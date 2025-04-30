@@ -42,10 +42,9 @@ class FerramentaController
         $dados->ferramenta = $_POST['ferramenta'];
         $dados->descricao = $_POST['descricao'];
         $dados->status   = $_POST['status'];
+        $dados->id_ferramenta = $_POST['id_ferramenta'];
         
-        // $up = new Database();
-        
-        if (empty($_POST['id_ferramenta'])) {
+        if (empty($dados->id_ferramenta)) {
  
             $dados->insert($dados);
         } else {

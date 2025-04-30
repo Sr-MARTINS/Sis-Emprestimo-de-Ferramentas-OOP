@@ -15,13 +15,15 @@
 
         <div style="margin: 2rem auto;" >
             <div style="margin: 2rem 0 2rem 2rem; ">
-                <a href="/home/list_usuario" class="btn btn-outline-secondary" >Voltar</a>
+                <a href="/list_usuario" class="btn btn-outline-secondary" >Voltar</a>
             </div>
             
             <div class="col-md-10" style="margin:auto">
-                <form action="/home/cadastro/save_usuario" method="POST">
+                <form action="/cadastro/save_usuario" method="POST">
 
-                    <input type="hidden" name="id_usuario" value="<?php echo isset($_GET['id']) ? $dadosLinha->id_usuario : ''; ?>"> 
+                    <input type="hidden" name="id_usuario" 
+                    value="<?php echo isset($_GET['id']) ? $dadosLinha->id_usuario : ''; ?>"> 
+
                     <div class="mb-3">
                         <label for="nome" class="form-label">Nome:</label>
                         <input type="text" name="nome" class="form-control"

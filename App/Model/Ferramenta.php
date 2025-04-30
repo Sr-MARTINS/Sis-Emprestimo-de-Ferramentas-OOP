@@ -11,6 +11,7 @@ class Ferramenta extends Database
         "status"
     ];
     static public $primaria = "id_ferramenta";
+    public $id_ferramenta;
     public $ferramenta;
     public $descricao;
     public $status;

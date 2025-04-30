@@ -29,7 +29,7 @@ class UsuarioController
 
             
             $dadosLinha = $linha['0'];
-            // var_dump($dadosLinha->em);
+            // var_dump($dadosLinha);
             // exit;
         }
         include 'View/Usuario/FormUser.php';
@@ -38,14 +38,21 @@ class UsuarioController
     public static function saveUsuario()
     {
         $dados = new Usuarios();
-
+        
         $dados->usuario = $_POST['nome'];
         $dados->email = $_POST['email'];
         $dados->senha = $_POST['senha'];
+        $dados->id_usuario = $_POST['id_usuario'];
+        
+        if (empty($dados->id_usuario)) {
 
-        $dados->insert($dados);
- 
-        header("Location: /home/list_usuario");
+            $dados->insert($dados);
+        } else {
+            
+            $dados->update($dados);
+        }
+
+        header("Location: /list_usuario");
     }
 
     public static function delete()
@@ -54,6 +61,6 @@ class UsuarioController
         // var_dump($dl);
         $dl->delete($_GET['id']);
 
-        header("Location: /home/list_usuario");
+        header("Location: /list_usuario");
     }
 }

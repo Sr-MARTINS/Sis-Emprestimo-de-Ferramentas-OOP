@@ -41,7 +41,7 @@
                 <a href="index.php" class="btn btn-outline-secondary" >Voltar</a>
 
                     <!-- CADASTRO DE FERRAMENTA -->
-                <a href="/home/cadastro_usuario" class="btn btn-success">Criar Usuário</a>
+                <a href="/cadastro_usuario" class="btn btn-success">Criar Usuário</a>
                 <!-- <a href="frmFerramenta.php" class="btn btn-success">Cadastrar Ferramenta</a> -->
             </div>
 
@@ -74,8 +74,8 @@
                         <td><?= $itens->usuario ?></td>
                         <td><?= $itens->email ?></td>
                         <td>
-                            <a href="/home/cadastro_usuario?id=<?= $itens->id_usuario ?>">Editar</a> /
-                            <a href="/home/cadastro_usuario/delete?id=<?= $itens->id_usuario ?>">Deletar</a>
+                            <a href="/cadastro_usuario?id=<?= $itens->id_usuario ?>">Editar</a> /
+                            <a href="/cadastro_usuario/delete?id=<?= $itens->id_usuario ?>">Deletar</a>
                         </td>
                     </tr>
                 <?php endforeach ?>

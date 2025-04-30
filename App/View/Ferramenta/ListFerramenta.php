@@ -32,12 +32,12 @@
             <h3>Lista de Ferramenta</h3>  
         </div>
 
-        <a href="/home/list_usuario">Cadastro Usuarios</a>
+        <a href="/list_usuario">Cadastro Usuarios</a>
 
 
         <div class="col-md-10" style="margin:2rem 0 2rem 7rem">
             <!-- <a href="index.php" class="btn btn-outline-secondary" >Voltar</a> -->
-            <a href="/home/cadastro_ferramente" class="btn btn-success">Cadastrar Ferramenta</a>
+            <a href="/cadastro_ferramente" class="btn btn-success">Cadastrar Ferramenta</a>
             
         </div>
 
@@ -61,10 +61,10 @@
                             <td><?= $itens->status        ?></td>
 
                             <td>
-                                <a href="/home/cadastro_ferramente?id=<?= $itens->id_ferramenta ?>">
+                                <a href="/cadastro_ferramente?id=<?= $itens->id_ferramenta ?>">
                                     <i class="bi bi-pencil-square"></i>
                                 </a> 
-                                <a href="/home/cadastro_ferramenta/delete?id=<?= $itens->id_ferramenta ?>">
+                                <a href="/cadastro_ferramenta/delete?id=<?= $itens->id_ferramenta ?>">
                                     <i class="bi bi-trash"></i>
                                 </a>
                             </td>

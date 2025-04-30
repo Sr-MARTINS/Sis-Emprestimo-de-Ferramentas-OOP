@@ -66,21 +66,26 @@ class Database
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function update($materias)
+    public function update($dados)
     {
-        $sql = " UPDATE " .static::$tabela ." SET " ."  ferramenta = ? , descricao = ? , status = ?  WHERE id_ferramenta = ? ";
+        $campos = [];    
+        foreach(static::$colunas as $campo){
+            $campos[$campo] = $dados->$campo;
+        } 
+         
+        $setClause = implode(', ', array_map(fn($col) => "$col = ?", array_keys($campos)));
 
-        var_dump($sql);
-        exit;
-    
+        $sql = "UPDATE " . static::$tabela . " SET $setClause WHERE " . static::$primaria . " = ?";
+
         $stmt = $this->conexao->prepare($sql);
 
-        $stmt->bindValue(1, $materias->ferramenta);
-        $stmt->bindValue(2, $materias->descricao);
-        $stmt->bindValue(3, $materias->status);
-        $stmt->bindValue(4, $materias->id_ferramenta);
+        $valores = array_values($campos);
+        $valores[] = $dados->{static::$primaria};
 
-       return  $stmt->fetchAll(PDO::FETCH_OBJ);
+        $stmt->execute($valores);
+
+        return $stmt->rowCount();
+
     }
 
 

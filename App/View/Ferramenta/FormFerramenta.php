@@ -23,7 +23,7 @@
             
             <div class="col-md-10" style="margin:auto">
 
-                <form action="/home/cadastro/save_ferramenta" method="POST">
+                <form action="/cadastro/save_ferramenta" method="POST">
                     
                     <input type="hidden" name="id_ferramenta" name="id_ferramenta" value="<?php echo isset($_GET['id']) ? $dadosLinha->id_ferramenta : ''; ?>"> 
 
@@ -51,8 +51,6 @@
                         </select>
                     </div>
 
-                    <!-- <input type="text" name="id" value=""> -->
-        
                     <button type="submit" class="btn btn-primary">Cadastrar</button>
                 </form>
             </div>

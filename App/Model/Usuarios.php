@@ -11,6 +11,7 @@ class Usuarios extends Database
         "senha"
     ];
     static public $primaria = "id_usuario";
+    public $id_usuario;
     public $usuario;
     public $email;
     public $senha;

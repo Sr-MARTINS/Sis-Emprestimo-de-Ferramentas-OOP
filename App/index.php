@@ -2,7 +2,7 @@
 
 include 'Controller/FerramentaController.php';
 include 'Controller/UsuarioController.php';
-include 'Controller/Admistracao.php';
+include 'Controller/Administracao.php';
 
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -17,7 +17,7 @@ switch ($url)
 
         //Adm
     case ('/login'):
-        Admistracao::index();
+        Administracao::index();
         break;
     
         
@@ -26,34 +26,34 @@ switch ($url)
         FerramentaController::index();
         break;
 
-    case '/home/cadastro_ferramente':
+    case '/cadastro_ferramente':
         FerramentaController::formFerramenta();
         break;
 
-    case '/home/cadastro/save_ferramenta';
+    case '/cadastro/save_ferramenta';
         FerramentaController::saveFerramenta();
         break;
 
-    case '/home/cadastro_ferramenta/delete':
+    case '/cadastro_ferramenta/delete':
         FerramentaController::delete();
         break;
 
 
         //Usuario
-    case '/home/list_usuario':
+    case '/list_usuario':
         UsuarioController::index();
         break;
 
-    case '/home/cadastro_usuario':
+    case '/cadastro_usuario':
         // echo "oi";
         UsuarioController::formUsuario();
         break;
 
-    case '/home/cadastro/save_usuario';
+    case '/cadastro/save_usuario';
         UsuarioController::saveUsuario();
         break;
 
-    case '/home/cadastro_usuario/delete':
+    case '/cadastro_usuario/delete':
         UsuarioController::delete();
         break;    
     default :
