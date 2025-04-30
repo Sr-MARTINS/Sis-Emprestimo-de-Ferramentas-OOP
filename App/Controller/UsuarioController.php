@@ -41,7 +41,7 @@ class UsuarioController
         
         $dados->usuario = $_POST['nome'];
         $dados->email = $_POST['email'];
-        $dados->senha = $_POST['senha'];
+        $dados->senha = hash('sha256', $_POST['senha']);
         $dados->id_usuario = $_POST['id_usuario'];
         
         if (empty($dados->id_usuario)) {
