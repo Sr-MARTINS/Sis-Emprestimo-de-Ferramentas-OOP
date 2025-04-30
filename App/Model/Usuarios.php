@@ -10,7 +10,7 @@ class Usuarios extends Database
         "email",
         "senha"
     ];
-    static public $primario = "id_usuario";
+    static public $primaria = "id_usuario";
     public $usuario;
     public $email;
     public $senha;

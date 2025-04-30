@@ -10,14 +10,28 @@ class UsuarioController
     public $email;
     public $password;
 
-    // public function index()
-    // {
 
-    // }
+    public static function index()
+    {
+        $user = new Usuarios();
+
+        $user = $user->select();
+
+        include 'View/Usuario/ListUsuario.php';
+    }
 
     public static function formUsuario()
     {
-        // echo "oi";
+        $edit = new Usuarios();
+
+        if(isset($_GET['id'])) {
+            $linha = $edit->selectById($_GET['id']);
+
+            
+            $dadosLinha = $linha['0'];
+            // var_dump($dadosLinha->em);
+            // exit;
+        }
         include 'View/Usuario/FormUser.php';
     }
 
@@ -31,6 +45,15 @@ class UsuarioController
 
         $dados->insert($dados);
  
-        header("Location: /home");
+        header("Location: /home/list_usuario");
+    }
+
+    public static function delete()
+    {
+        $dl = new Usuarios();
+        // var_dump($dl);
+        $dl->delete($_GET['id']);
+
+        header("Location: /home/list_usuario");
     }
 }

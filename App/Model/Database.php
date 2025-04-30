@@ -3,6 +3,7 @@
 class Database
 {
     static public $tabela;
+    static public $primaria;
     static public $colunas;
     
     private $conexao;
@@ -46,31 +47,31 @@ class Database
 
     public function select()
     {
-        $sql = " SELECT * FROM ferramenta ";
+        $sql = " SELECT * FROM " .static::$tabela ;
         
         $stmt = $this->conexao->query($sql);
-        $stmt->execute();
-
+     
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function selectById($id)
     {
-        include_once 'Controller/HomeController.php';
-
-        $sql = " SELECT * FROM " .static::$tabela ." WHERE " .static::$colunas = "$id ";
-
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
+        // var_dump(static::$tabela);
+        // exit;
+        $sql = " SELECT * FROM " .static::$tabela ." WHERE " .static::$primaria  ."=$id ";
      
-        $stmt->execute();
+        $stmt = $this->conexao->query($sql);
+     
         
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     public function update($materias)
     {
-        $sql = " UPDATE ferramenta SET  ferramenta = ? , descricao = ? , status = ?  WHERE id_ferramenta = ? ";
+        $sql = " UPDATE " .static::$tabela ." SET " ."  ferramenta = ? , descricao = ? , status = ?  WHERE id_ferramenta = ? ";
+
+        var_dump($sql);
+        exit;
     
         $stmt = $this->conexao->prepare($sql);
 
@@ -86,11 +87,16 @@ class Database
 
     public function delete($id)
     {
-        $sql = " DELETE FROM ferramenta WHERE id_ferramenta = ? ";
+        $sql = " DELETE FROM " .static::$tabela ." WHERE " .static::$primaria ."=$id";
+        
+        // var_dump($sql);
+        $stmt = $this->conexao->query($sql);
+        // var_dump($stmt);
+        // exit;
+        
+        // $stmt->bindValue(1, $id);
+        // $stmt->execute();
 
-        $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $id);
-
-        $stmt->execute();
+        return $stmt;
     }   
 }

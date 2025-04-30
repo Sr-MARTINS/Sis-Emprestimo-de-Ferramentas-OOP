@@ -1,5 +1,4 @@
 <?php
-// include_once 'Model/Database.php';
 
 include_once 'Model/Ferramenta.php';
 
@@ -15,20 +14,21 @@ class FerramentaController
 
     public static function index()
     {
-        $db = new Database();
+        // $db = new Database();
+        $ferramenta = new Ferramenta();
 
-        $rows = $db->select(); 
+        $rows = $ferramenta->select(); 
 
         include 'View/Ferramenta/ListFerramenta.php';
     }
 
     public static function formFerramenta()
-    {   
-         $edit = new Database();
+    {           
+        $edit = new Ferramenta();
         
         if(isset($_GET['id'])) {
             $linha = $edit->selectById($_GET['id']);
-        
+            
             $dadosLinha = $linha['0'];
         }
 
@@ -39,7 +39,6 @@ class FerramentaController
     {   
         $dados = new Ferramenta();   
 
-        // $dados->id_ferramenta = $_POST['id_ferramenta'];
         $dados->ferramenta = $_POST['ferramenta'];
         $dados->descricao = $_POST['descricao'];
         $dados->status   = $_POST['status'];
@@ -54,14 +53,14 @@ class FerramentaController
             $dados->update($dados);
         } 
 
-        header("Location: /home");
+        header("Location: /list_ferramenta");
     }
 
     public static function delete()
     {
-        $db = new Database();
-        $db->delete($_GET['id']);
+        $dl = new Ferramenta();
+        $dl->delete($_GET['id']);
 
-        header("Location: /home");
+        header("Location: /list_ferramenta");
     }
 }
