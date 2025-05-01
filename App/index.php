@@ -4,6 +4,7 @@ include 'Controller/FerramentaController.php';
 include 'Controller/UsuarioController.php';
 include 'Controller/Administracao.php';
 
+
 $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 // echo $url;
@@ -11,13 +12,16 @@ $url = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 switch ($url) 
 {
     case ('/'):
-        echo 'Login';
+        include 'View/Login.php';
         break;
 
 
         //Adm
-    case ('/login'):
+    case '/login':
         Administracao::index();
+        break;
+
+    case '/usuario':
         break;
     
         

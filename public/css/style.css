@@ -1,0 +1,43 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#topo {
+    margin: .5rem 2rem 0 2rem;
+}
+main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80vh;
+    margin: 1rem;
+}
+#boxImg {
+    width: 50%;
+}
+#boxImg img {
+    width: 100%;
+}
+#boxForm {
+    width:380px;
+    padding:10px;
+    border:1px solid grey;
+    border-radius:1rem;
+    margin-bottom:1rem;
+}
+form {
+    padding-left:2rem ;
+}
+form input[type="text"] {
+    width: 300px;
+    padding: 8px;
+    margin: .4rem 0 1.1rem 0;
+    border-radius:.5rem;
+    border-color: #80808050;
+}
+
+form button {
+    width: 50%;
+    margin: auto;
+}

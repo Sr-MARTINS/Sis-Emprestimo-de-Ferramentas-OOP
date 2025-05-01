@@ -12,16 +12,19 @@
 
     <div class="container-fuid">
         <div>
-            <div>
+            <div style="display: flex; align-items: center; justify-content: space-between;">
                 <nav class="navbar ">
                     <div class="container-fluid">
-                    
                         <a href="logout.php" class="navbar-brand" style="font-size:2.1rem; margin-left:32px">
                             <i class="bi bi-box-arrow-in-left"></i>
                          </a>
-                        
                     </div>
                 </nav>
+                <div style=" margin-right: 2rem;">
+                    <a href="" style="font-size:1.6rem; margin-left:32px">
+                        <i class="bi bi-gear"></i>
+                    </a>
+                </div>
             </div>
             
         </div>
@@ -55,15 +58,14 @@
 
                 <!--   TABELA CLIENTES  -->
 
-                    <!-- TABELA FERRAMENTAS -->
         <div class="col-md-10" style="margin:2rem auto; border:1px solid #80808047; padding:20px 10px 20px 50px; height:445px">
-        <table class="table col-md-8">
+         <table class="table col-md-8">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Nome</th>
-                        <th scope="col">Descrição</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Opções</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -83,6 +85,7 @@
                 </tbody>
             </table>
         </div>
+
 
     </div>
     

@@ -19,7 +19,8 @@ class FerramentaController
 
         $rows = $ferramenta->select(); 
 
-        include 'View/Ferramenta/ListFerramenta.php';
+        // include 'View/Ferramenta/ListFerramenta.php';
+        include 'View/lista.php';
     }
 
     public static function formFerramenta()

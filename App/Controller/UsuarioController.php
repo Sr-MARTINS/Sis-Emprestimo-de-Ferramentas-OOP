@@ -17,7 +17,8 @@ class UsuarioController
 
         $user = $user->select();
 
-        include 'View/Usuario/ListUsuario.php';
+        include 'View/Usuario/ListUser.php';
+        // include 'View/lista.php';
     }
 
     public static function formUsuario()
